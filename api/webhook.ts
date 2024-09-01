@@ -18,7 +18,7 @@ export default function handler(request: VercelRequest, response: VercelResponse
         body: JSON.stringify({
             content: 'Webhook test <@523998904912707595>',
         }),
-    }).then((res) => res.json()).catch((err) => {
+    }).then((res) => res.json()).then(console.log).catch((err) => {
         console.error(err)
     }))
 
