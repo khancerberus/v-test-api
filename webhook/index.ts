@@ -1,4 +1,17 @@
-export function POST(request: Request) {
+import type {
+    VercelRequest,
+    VercelResponse,
+} from '@vercel/node'
+
+export const config = {
+    runtime: 'nodejs'
+}
+
+export default function handler(request: VercelRequest, response: VercelResponse) {
+    return response.status(200).send('Hello, World!')
+}
+
+export function POST(request: VercelRequest) {
     // const discordWebhook = 'https://discord.com/api/webhooks/'
     // fetch(discordWebhook, {
     //     method: 'POST',
@@ -11,8 +24,4 @@ export function POST(request: Request) {
     // })
     console.log(JSON.stringify(request.body))
     return new Response(`Hello, ${JSON.stringify(request.body)}!`)
-}
-
-export function GET(request: Request) {
-    return new Response(`Hello everyone!`)
 }
