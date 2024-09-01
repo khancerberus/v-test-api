@@ -8,11 +8,7 @@ import { waitUntil } from '@vercel/functions'
 //     runtime: 'nodejs'
 // }
 
-// export default function handler(request: VercelRequest, response: VercelResponse) {
-//     return response.status(200).send('Hello, World!')
-// }
-
-export function POST(request: VercelRequest, response: VercelResponse) {
+export default function handler(request: VercelRequest, response: VercelResponse) {
     const discordWebhook = 'https://discord.com/api/webhooks/1276053112498683974/lri2_HuhiT4uTOlWEgL8bnovXjUKoXGdqNjIfArCh5savjMFATr5VyhRjtA7u62JBVBL'
     waitUntil(fetch(discordWebhook, {
         method: 'POST',
@@ -22,6 +18,8 @@ export function POST(request: VercelRequest, response: VercelResponse) {
         body: JSON.stringify({
             content: 'Webhook test <@523998904912707595>',
         }),
+    }).then((res) => res.json()).catch((err) => {
+        console.error(err)
     }))
 
     return response.status(200).send('Webhook sent!')
