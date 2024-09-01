@@ -11,9 +11,9 @@ import type {
 //     return response.status(200).send('Hello, World!')
 // }
 
-export function POST(request: VercelRequest, response: VercelResponse) {
+export async function POST(request: VercelRequest, response: VercelResponse) {
     const discordWebhook = 'https://discord.com/api/webhooks/1276053112498683974/lri2_HuhiT4uTOlWEgL8bnovXjUKoXGdqNjIfArCh5savjMFATr5VyhRjtA7u62JBVBL'
-    fetch(discordWebhook, {
+    await fetch(discordWebhook, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
