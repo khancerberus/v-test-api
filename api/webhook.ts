@@ -7,9 +7,9 @@ import type {
 //     runtime: 'nodejs'
 // }
 
-export default function handler(request: VercelRequest, response: VercelResponse) {
-    return response.status(200).send('Hello, World!')
-}
+// export default function handler(request: VercelRequest, response: VercelResponse) {
+//     return response.status(200).send('Hello, World!')
+// }
 
 export function POST(request: VercelRequest) {
     // const discordWebhook = 'https://discord.com/api/webhooks/'
