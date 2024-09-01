@@ -3,9 +3,9 @@ import type {
     VercelResponse,
 } from '@vercel/node'
 
-export const config = {
-    runtime: 'nodejs'
-}
+// export const config = {
+//     runtime: 'nodejs'
+// }
 
 export default function handler(request: VercelRequest, response: VercelResponse) {
     return response.status(200).send('Hello, World!')
