@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@vercel/functions':
+        specifier: ^1.4.1
+        version: 1.4.1
       '@vercel/node':
         specifier: ^3.2.10
         version: 3.2.10
@@ -104,6 +107,15 @@ packages:
 
   '@vercel/error-utils@2.0.2':
     resolution: {integrity: sha512-Sj0LFafGpYr6pfCqrQ82X6ukRl5qpmVrHM/191kNYFqkkB9YkjlMAj6QcEsvCG259x4QZ7Tya++0AB85NDPbKQ==}
+
+  '@vercel/functions@1.4.1':
+    resolution: {integrity: sha512-987mKpoDCI18x2rDjrDbiuGOtxDMK/UhfhDZoN3A2SAt40BMaj8HEKwVqL6fOian5j/3RZcOuJnMOpatQGgpjw==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      '@aws-sdk/credential-provider-web-identity': '*'
+    peerDependenciesMeta:
+      '@aws-sdk/credential-provider-web-identity':
+        optional: true
 
   '@vercel/nft@0.27.3':
     resolution: {integrity: sha512-oySTdDSzUAFDXpsSLk9Q943o+/Yu/+TCFxnehpFQEf/3khi2stMpTHPVNwFdvZq/Z4Ky93lE+MGHpXCRpMkSCA==}
@@ -1001,6 +1013,8 @@ snapshots:
   '@vercel/build-utils@8.3.8': {}
 
   '@vercel/error-utils@2.0.2': {}
+
+  '@vercel/functions@1.4.1': {}
 
   '@vercel/nft@0.27.3':
     dependencies:
