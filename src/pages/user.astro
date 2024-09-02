@@ -7,7 +7,7 @@ const HOST = import.meta.env.PUBLIC_HOST ?? 'http://localhost:3000'
 const users: Array<UserType> = await fetch(`${HOST}/api/user`).then((res) => res.json())
 ---
 
-<Layout title='users'>
+<Layout title='Civ6 Users'>
     <main>
         <div>
             <h1>User</h1>
