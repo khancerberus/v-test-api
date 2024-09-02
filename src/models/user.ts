@@ -1,18 +1,12 @@
 import { DataTypes, Model } from 'sequelize'
-import { db } from '../utils/database';
+import { sequelize } from '../lib/sequelize'
 
 export interface User extends Model {
-    id: string,
-    name: string,
+    name: string
     discordId: number
 }
 
-export const User = db.define<User>('User', {
-    id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        defaultValue: DataTypes.UUIDV4
-    },
+export const User = sequelize.define<User>('User', {
     name: {
         type: DataTypes.STRING,
         allowNull: false
