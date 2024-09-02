@@ -1,12 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import type { User as UserType } from '../models/user'
 
-interface User {
-    name: string,
-    discordId: number
-}
-
-const user: User = await fetch('http://localhost:3000/api/user').then((res) => res.json())
+const users: Array<UserType> = await fetch('http://localhost:3000/api/user').then((res) => res.json())
 ---
 
 <Layout title='users'>
@@ -15,9 +11,19 @@ const user: User = await fetch('http://localhost:3000/api/user').then((res) => r
             <h1>User</h1>
             <p>Welcome to the user page!</p>
 
-            <h2>User Info</h2>
-            <p>Name: {user.name}</p>
-            <p>Discord ID: {user.discordId}</p>
+            <h5>All users in the system</h5>
+            <ul>
+                {users.map(user => {
+                    return (
+                        <li>
+                            <details style="background-color: darkslategray;">
+                                <summary>{user.name} - {user.discordId}</summary>
+                                <p>ID: {user.id}</p>
+                            </details>
+                        </li>
+                    )
+                })}
+            </ul>
           </div>
     </main>
 </Layout>

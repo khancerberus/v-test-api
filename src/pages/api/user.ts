@@ -1,19 +1,33 @@
 import type { APIRoute } from 'astro'
+import { User } from '../../models/user'
 
-export const GET: APIRoute = ({ params, request }) => {
-    console.log('GET /user.json')
+export const GET: APIRoute = async ({ params, request }) => {
+    const users = await User.findAll()
+
     return new Response(
-        JSON.stringify({
-            name: 'John Doe',
-            discordId: '1234567890'
-        })
+        JSON.stringify(users),
+        {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     )
 }
 
 export const POST: APIRoute = async ({ request }) => {
-    const data = request.body
-    console.log('POST /user.json')
-    console.log(data)
+    const data = await request.json()
 
-    return new Response('POST /user.json')
+    const newUser = await User.create(data)
+
+    return new Response(
+        JSON.stringify({
+            message: 'User created with success',
+            user: newUser
+        }),
+        {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    )
 }
