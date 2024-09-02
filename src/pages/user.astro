@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro'
 import type { User as UserType } from '../models/user'
 
-const users: Array<UserType> = await fetch('http://localhost:3000/api/user').then((res) => res.json())
+const HOST = import.meta.env.PUBLIC_HOST ?? 'http://localhost:3000'
+
+const users: Array<UserType> = await fetch(`${HOST}/api/user`).then((res) => res.json())
 ---
 
 <Layout title='users'>
