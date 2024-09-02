@@ -1,4 +1,4 @@
-import { DataTypes, Model } from 'sequelize'
+import { DataTypes, type Model } from 'sequelize'
 import { sequelize } from '../lib/sequelize'
 
 export interface User extends Model {

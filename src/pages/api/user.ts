@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { User } from '../../models/user'
 
-export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async () => {
     const users = await User.findAll()
 
     return new Response(
